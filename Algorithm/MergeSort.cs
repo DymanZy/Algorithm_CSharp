@@ -14,6 +14,7 @@ namespace Algorithm_CSharp.Algorithm
 		public static void Sort(List<int> data)
 		{
 
+
 		}
 	}
 }

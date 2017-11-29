@@ -27,6 +27,9 @@ namespace Algorithm_CSharp
 				data.Add(rd.Next(1, 100));
 			}
 
+			//BubbleSort.Sort(data);
+			//CocktailSort.Sort(data);
+			//MergeSort.Sort(data);
 			SelectionSort.Sort(data);
 			string arr = string.Join(",", data);
 			Console.WriteLine("arr = " + arr);
