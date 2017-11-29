@@ -1,0 +1,16 @@
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.exe.config
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.exe
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.pdb
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.csprojResolveAssemblyReference.cache
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.Properties.Resources.resources
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.csproj.GenerateResource.Cache
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.exe
+C:\Users\dyman\Documents\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.pdb
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.exe.config
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.exe
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.pdb
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.exe
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\bin\Debug\Algorithm_CSharp.pdb
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.csprojResolveAssemblyReference.cache
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.Properties.Resources.resources
+E:\GitHub\Algorithm_CSharp\Algorithm_CSharp\obj\Debug\Algorithm_CSharp.csproj.GenerateResource.Cache
