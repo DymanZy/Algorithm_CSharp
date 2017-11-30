@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 namespace Algorithm_CSharp.Algorithm
 {
 	/// <summary>
-	/// 归并排序，原理：将两个有序的数列，比较合并成一个有序的数列
+	/// 桶排序
 	/// </summary>
-	public class MergeSort
+	public class BucketSort
 	{
-		public static void Sort(List<int> data)
-		{
-
-
-		}
 	}
 }

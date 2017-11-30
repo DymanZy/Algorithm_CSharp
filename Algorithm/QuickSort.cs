@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 namespace Algorithm_CSharp.Algorithm
 {
 	/// <summary>
-	/// 归并排序，原理：将两个有序的数列，比较合并成一个有序的数列
+	/// 快速排序，原理：分治思想，哨兵思想
 	/// </summary>
-	public class MergeSort
+	public class QuickSort
 	{
 		public static void Sort(List<int> data)
 		{
-
-
 		}
 	}
 }
