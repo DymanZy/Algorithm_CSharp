@@ -27,11 +27,14 @@ namespace Algorithm_CSharp
 				data.Add(rd.Next(1, 100));
 			}
 
-			//BubbleSort.Sort(data);
-			//CocktailSort.Sort(data);
-			//MergeSort.Sort(data);
-			SelectionSort.Sort(data);
-			string arr = string.Join(",", data);
+            //BubbleSort.Sort(data);
+            //CocktailSort.Sort(data);
+            //MergeSort.Sort(data);
+            //SelectionSort.Sort(data);
+            int[] a = data.ToArray();
+            HeapSort.Sort(a);
+
+            string arr = string.Join(",", a);
 			Console.WriteLine("arr = " + arr);
 		}
 	}
