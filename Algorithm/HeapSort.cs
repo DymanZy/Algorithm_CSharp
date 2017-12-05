@@ -2,7 +2,7 @@
 namespace Algorithm_CSharp.Algorithm
 {
     /// <summary>
-    /// Heap sort.
+    /// 堆排序，原理：通过不断创建最大堆从而不断从无序区中取出最大值放到有序区中，从而完成排序。
     /// </summary>
     public class HeapSort {
         
