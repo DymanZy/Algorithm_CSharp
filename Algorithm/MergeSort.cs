@@ -25,7 +25,7 @@ namespace Algorithm_CSharp.Algorithm
 			List<int> mergeList = new List<int>();
 			int middle = (low + high) / 2;
 			List<int> leftMerge = MergeSortOnlyList(data, low, middle);
-			List<int> rightMerge = MergeSortOnlyList(data, middle + 1, low);
+			List<int> rightMerge = MergeSortOnlyList(data, middle + 1, high);
 
 			int i = 0, j = 0;
 			while (true) {
@@ -43,7 +43,6 @@ namespace Algorithm_CSharp.Algorithm
 					}
 				}
 			}
-
 			return mergeList;
 		}
 	}
