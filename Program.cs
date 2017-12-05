@@ -15,28 +15,6 @@ namespace Algorithm_CSharp
 		[STAThread]
 		static void Main()
 		{
-			//Application.EnableVisualStyles();
-			//Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new Form1());
-
-			List<int> data = new List<int>();
-			Random rd = new Random();
-
-			for (int i = 0; i < 10; i++)
-			{
-				data.Add(rd.Next(1, 100));
-			}
-
-			//BubbleSort.Sort(data);
-			//CocktailSort.Sort(data);
-			//MergeSort.Sort(data);
-			//SelectionSort.Sort(data);
-			//QuickSort.Sort(data);
-			//InsertSort.Sort(data);
-
-			data = MergeSort.Sort(data);
-			string arr = string.Join(",", data);
-			Console.WriteLine("arr = " + arr);
 		}
 	}
 }
