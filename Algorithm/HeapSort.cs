@@ -7,12 +7,10 @@ namespace Algorithm_CSharp.Algorithm
     public class HeapSort {
         
         public static void Sort(int[] list) {
-            Console.WriteLine("排序前： " + string.Join(",", list));
             //  循环建立初始堆
             for (int i = list.Length / 2; i >= 0; i--) {
                 HeapAdjust(list, i, list.Length);
             }
-            Console.WriteLine("最大堆： " + string.Join(",", list));
 
             //  进行 n-1 次循环，完成排序
             for (int i = list.Length - 1; i > 0; i--) {
@@ -21,7 +19,6 @@ namespace Algorithm_CSharp.Algorithm
                 list[0] = temp;
 
                 HeapAdjust(list, 0, i);
-                Console.WriteLine("一次排序之后： " + string.Join(",", list));
             }
         }
 

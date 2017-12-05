@@ -28,17 +28,37 @@ namespace Algorithm_CSharp.Algorithm
 
 		private static int getPivot(int low, int high, List<int> data)
 		{
-			int value = data[low];
+			int midValue = selectPivotMidOfThree(low, high, data);
+			//int midValue = selectPivotRandom(low, high, data);
+			//int midValue = data[low];
 
 			while (low < high) {
-				while (low < high && value <= data[high])
+				while (low < high && midValue <= data[high])
 					high--;
 				Util.swap(low, high, data);
-				while (low < high && data[low] <= value)
+				while (low < high && data[low] <= midValue)
 					low++;
 				Util.swap(low, high, data);
 			}
 			return low;
+		}
+
+		private static int selectPivotRandom(int low, int high, List<int> data) {
+			int random = new Random().Next(low, high);
+			Util.swap(low, random, data);
+			return data[low];
+		}
+
+		private static int selectPivotMidOfThree(int low, int high, List<int> data) {
+			int mid = (low + high) >> 1;
+			if (data[mid] > data[high])
+				Util.swap(mid, high, data);
+			if (data[low] > data[high])
+				Util.swap(low, high, data);
+			if (data[low] > data[mid])
+				Util.swap(low, mid, data);
+
+			return data[mid];
 		}
 	}
 }
