@@ -11,18 +11,41 @@ namespace Algorithm_CSharp.Algorithm
 	/// </summary>
 	public class InsertSort
 	{
-		public static void Sort(List<int> data) {
-
-			for (int i = 1; i < data.Count; i++) {
-				for (int j = i - 1; j >= 0; j--) {
-
-					if (data[j] > data[j + 1]) {
-						Util.swap(j, j + 1, data);	//	这样是插入排序？！ 2233
-					} else {
-						break;
-					}
-				}
-			}
+		public static void Sort(int[] a) {
+            int temp;  
+            int j;  
+            for(int i=1;i<a.Length;i++){  
+                if(a[i]<a[i-1]){  
+                    temp = a[i];  
+                    j = i;  
+                    do{  
+                        a[j] = a[j-1];  
+                        j--;  
+                    }while(j>0&&a[j-1]>temp);  
+                    a[j] = temp;  
+                }  
+            }  
 		}
+
+
+        public static void Sort(int[] a, int low, int high)
+        {
+            int temp;
+            int j;
+            for (int i = 1 + low; i < high; i++)
+            {
+                if (a[i] < a[i - 1])
+                {
+                    temp = a[i];
+                    j = i;
+                    do
+                    {
+                        a[j] = a[j - 1];
+                        j--;
+                    } while (j > 0 && a[j - 1] > temp);
+                    a[j] = temp;
+                }
+            }
+        }
 	}
 }

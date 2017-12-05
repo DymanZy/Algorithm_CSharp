@@ -14,5 +14,12 @@ namespace Algorithm_CSharp.Algorithm
 			data[i] = data[j];
 			data[j] = temp;
 		}
+
+        public static void swap(int i, int j, int[] data)
+        {
+            int temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+        }
 	}
 }
