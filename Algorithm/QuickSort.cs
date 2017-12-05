@@ -28,7 +28,8 @@ namespace Algorithm_CSharp.Algorithm
 
 		private static int getPivot(int low, int high, List<int> data)
 		{
-			int midValue = selectPivotMidOfThree(low, high, data);
+			int midValue = selectPivotMidOfNine(low, high, data);
+			//int midValue = selectPivotMidOfThree(low, high, data);
 			//int midValue = selectPivotRandom(low, high, data);
 			//int midValue = data[low];
 
@@ -59,6 +60,29 @@ namespace Algorithm_CSharp.Algorithm
 				Util.swap(low, mid, data);
 
 			return data[mid];
+		}
+
+		private static int selectPivotMidOfNine(int low, int high, List<int> data) {
+			int length = high - low;
+			if (length < 40) {
+				return selectPivotMidOfThree(low, high, data);
+			}
+
+			int step = length / 8;
+			int mid = (low + high) >> 1;
+
+			low = medOfThree(low, low + step, low + 2 * step, data);
+			mid = medOfThree(mid - step, mid, mid + step, data);
+			high = medOfThree(high - 2 * step, high - step, high, data);
+
+			mid = medOfThree(low, mid, high, data);
+			return data[mid];
+		}
+
+
+		private static int medOfThree(int x, int y, int z, List<int> data) {
+			return data[x] < data[y] ? (data[y] < data[z] ? y : (data[x] < data[z] ? z : x)) 
+									 : (data[x] < data[z] ? x : (data[y] < data[z] ? z : y));
 		}
 	}
 }
