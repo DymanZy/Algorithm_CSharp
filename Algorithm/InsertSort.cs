@@ -13,6 +13,20 @@ namespace Algorithm_CSharp.Algorithm
 	{
 
 		public static void Sort(List<int> data) {
+            for (int i = 0; i < data.Count; i++)
+            {
+                for (int j = i; j > 0; j--)
+                {
+                    if (data[j] < data[j - 1])
+                    {
+                        Util.swap(j, j - 1, data);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
 		}
 	}
 }

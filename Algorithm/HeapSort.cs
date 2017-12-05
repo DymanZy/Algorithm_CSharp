@@ -2,7 +2,7 @@
 namespace Algorithm_CSharp.Algorithm
 {
     /// <summary>
-    /// Heap sort.
+    /// 堆排序，原理：先建立最大堆，然后取出根结点和末结点替换
     /// </summary>
     public class HeapSort {
         
