@@ -7,9 +7,25 @@ using System.Threading.Tasks;
 namespace Algorithm_CSharp.Algorithm
 {
 	/// <summary>
-	/// 希尔排序（凌波微步）
+	/// 希尔排序（凌波微步），原理：也是插入排序的一种，但使用的是特别的插入步长
 	/// </summary>
 	public class ShellSort
 	{
+		public static void Sort(List<int> data) {
+			int gap, i, j, temp;
+			int length = data.Count;
+			for (gap = length / 2; gap > 0; gap /= 2)
+			{
+				for (i = gap; i < length; i++)
+				{
+					for (j = i - gap; j >= 0 && data[j] > data[j + gap]; j -= gap)
+					{
+						temp			= data[j];
+						data[j]			= data[j + gap];
+						data[j + gap]	= temp;
+					}
+				}
+			}
+		}
 	}
 }

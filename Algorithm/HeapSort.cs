@@ -2,17 +2,15 @@
 namespace Algorithm_CSharp.Algorithm
 {
     /// <summary>
-    /// 堆排序，原理：先建立最大堆，然后取出根结点和末结点替换
+    /// 堆排序，原理：通过不断创建最大堆从而不断从无序区中取出最大值放到有序区中，从而完成排序。
     /// </summary>
     public class HeapSort {
         
         public static void Sort(int[] list) {
-            Console.WriteLine("排序前： " + string.Join(",", list));
             //  循环建立初始堆
             for (int i = list.Length / 2; i >= 0; i--) {
                 HeapAdjust(list, i, list.Length);
             }
-            Console.WriteLine("最大堆： " + string.Join(",", list));
 
             //  进行 n-1 次循环，完成排序
             for (int i = list.Length - 1; i > 0; i--) {
@@ -21,7 +19,6 @@ namespace Algorithm_CSharp.Algorithm
                 list[0] = temp;
 
                 HeapAdjust(list, 0, i);
-                Console.WriteLine("一次排序之后： " + string.Join(",", list));
             }
         }
 

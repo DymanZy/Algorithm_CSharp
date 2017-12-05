@@ -11,22 +11,18 @@ namespace Algorithm_CSharp.Algorithm
 	/// </summary>
 	public class InsertSort
 	{
-
 		public static void Sort(List<int> data) {
-            for (int i = 0; i < data.Count; i++)
-            {
-                for (int j = i; j > 0; j--)
-                {
-                    if (data[j] < data[j - 1])
-                    {
-                        Util.swap(j, j - 1, data);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
+
+			for (int i = 1; i < data.Count; i++) {
+				for (int j = i - 1; j >= 0; j--) {
+
+					if (data[j] > data[j + 1]) {
+						Util.swap(j, j + 1, data);	//	这样是插入排序？！ 2233
+					} else {
+						break;
+					}
+				}
+			}
 		}
 	}
 }
