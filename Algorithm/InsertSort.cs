@@ -47,5 +47,25 @@ namespace Algorithm_CSharp.Algorithm
                 }
             }
         }
+
+		public static void Sort(List<int> a, int low, int high)
+		{
+			int temp;
+			int j;
+			for (int i = 1 + low; i <= high; i++)
+			{
+				if (a[i] < a[i - 1])
+				{
+					temp = a[i];
+					j = i;
+					do
+					{
+						a[j] = a[j - 1];
+						j--;
+					} while (j > 0 && a[j - 1] > temp);
+					a[j] = temp;
+				}
+			}
+		}
 	}
 }
