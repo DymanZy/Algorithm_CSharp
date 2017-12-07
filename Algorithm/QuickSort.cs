@@ -12,19 +12,17 @@ namespace Algorithm_CSharp.Algorithm
 	public class QuickSort {
 		public static void Sort(List<int> data) {
 			//quickSort(0, data.Count - 1, data.ToArray());
-
-			getPivotWithIntegrate(0, data.Count - 1, data.ToArray());
 		}
 
         public static void Sort(int[] data) {
-            //quickSort(0, data.Length - 1, data);
-
-			getPivotWithIntegrate(0, data.Length - 1, data);
+			quickSort(0, data.Length - 1, data);
+			//quickSortWithTailRecursion(0, data.Length - 1, data);
 		}
 
 		private static void quickSort(int low, int high, int[] data) {
 			if (low < high) {
-                if(high - low < 10) {
+				//	经验值为8
+                if(high - low < 9) {
                     //  使用直接插入排序，实测提高约 3%
                     InsertSort.Sort(data, low, high);
                     return;
@@ -37,65 +35,29 @@ namespace Algorithm_CSharp.Algorithm
             }
 		}
 
+		//	尾递归，减少栈深度，但是效率下降了15%，是代码的问题？
+		private static void quickSortWithTailRecursion(int low, int high, int[] data) {
+			int middle;
+			while (low < high) {
+				middle = getPivot(low, high, data);
+				quickSortWithTailRecursion(low, middle, data);
+				low = middle + 1;
+			}
+			return;
+		}
+
+
 		private static int getPivot(int low, int high, int[] data) {
 			int midValue = selectPivotMidOfNine(low, high, data);
-			Console.WriteLine("midValue = " + midValue);
 			while (low < high) {
 				while (low < high && midValue <= data[high])
 					high--;
 				Util.swap(low, high, data);
-				Console.WriteLine("current state = " + string.Join(",", data));
 
 				while (low < high && data[low] <= midValue)
 					low++;
 				Util.swap(low, high, data);
-				Console.WriteLine("current state = " + string.Join(",", data));
 			}
-			return low;
-		}
-
-		private static int getPivotWithIntegrate(int low, int high, int[] data) {
-			int midValue = selectPivotMidOfNine(low, high, data);
-			Console.WriteLine("midValue = " + midValue);
-			int lAnchor = low, rAnchor = high, leftIndex = low, rightIndex = high;
-
-			while (low < high) {
-				while (low < high && midValue < data[high])
-					high--;
-				if (midValue == data[high]) {
-					Util.swap(high, rightIndex, data);
-					rightIndex--;
-				} else {
-					Util.swap(low, high, data);
-				}
-				Console.WriteLine("current state = " + string.Join(",", data));
-
-				while (low < high && data[low] < midValue)
-					low++;
-				if (data[low] == midValue) {
-					Util.swap(low, leftIndex, data);
-					leftIndex++;
-				} else {
-					Util.swap(low, high, data);
-				}
-				Console.WriteLine("current state = " + string.Join(",", data));
-			}
-
-			/*
-			Console.WriteLine(" ===========聚堆============ ");
-			//	聚堆
-			for (int i = 0; i < leftIndex - lAnchor; i++)
-			{
-				Util.swap(lAnchor + i, low - 1 - i, data);
-				Console.WriteLine("current state = " + string.Join(",", data));
-			}
-			for (int i = 0; i < rAnchor - rightIndex; i++)
-			{
-				Util.swap(low + 1 + i, rAnchor - i, data);
-				Console.WriteLine("current state = " + string.Join(",", data));
-			}
-			*/
-
 			return low;
 		}
 
