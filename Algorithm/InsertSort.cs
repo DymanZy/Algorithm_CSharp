@@ -32,7 +32,7 @@ namespace Algorithm_CSharp.Algorithm
         {
             int temp;
             int j;
-            for (int i = 1 + low; i < high; i++)
+            for (int i = 1 + low; i <= high; i++)
             {
                 if (a[i] < a[i - 1])
                 {

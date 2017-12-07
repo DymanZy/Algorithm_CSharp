@@ -11,9 +11,9 @@ namespace Algorithm_CSharp.Algorithm
 	/// </summary>
 	public class ShellSort
 	{
-		public static void Sort(List<int> data) {
+		public static void Sort(int[] data) {
 			int gap, i, j, temp;
-			int length = data.Count;
+			int length = data.Length;
 			for (gap = length / 2; gap > 0; gap /= 2)
 			{
 				for (i = gap; i < length; i++)
