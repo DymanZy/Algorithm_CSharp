@@ -14,32 +14,30 @@ public class ArraySort {
 	}
 
 	private static void sort1(int[] x, int off, int len) {
-		// Insertion sort on smallest arrays
-		if (len < 7)
-		{
+		if (len < 7) {
+			//	直接插入排序
 			for (int i = off; i < len + off; i++)
 				for (int j = i; j > off && x[j - 1] > x[j]; j--)
 					swap(x, j, j - 1);
 			return;
 		}
 
-		// Choose a partition element, v
+		//	基准点的选择（三点式、九点式）
 		int m = off + (len >> 1);
-		if (len > 7)
-		{
+		if (len > 7) {
 			int l = off;
 			int n1 = off + len - 1;
-			if (len > 40)
-			{        // Big arrays, pseudomedian of 9
+			if (len > 40) {
 				int step = len / 8;
 				l = med3(x, l, l + step, l + 2 * step);
 				m = med3(x, m - step, m, m + step);
 				n1 = med3(x, n1 - 2 * step, n1 - step, n1);
 			}
-			m = med3(x, l, m, n1); // Mid-size, med of 3
+			m = med3(x, l, m, n1);
 		}
 		int v = x[m];
 
+		//	分堆
 		int a = off, b = a, c = off + len - 1, d = c;
 		while (true)
 		{
@@ -60,12 +58,12 @@ public class ArraySort {
 			swap(x, b++, c--);
 		}
 
-
+		//	聚合
 		int s, n = off + len;
 		s = Math.Min(a - off, b - a); vecswap(x, off, b - s, s);
 		s = Math.Min(d - c, n - d - 1); vecswap(x, b, n - s, s);
 
-
+		//	递归
 		if ((s = b - a) > 1)
 			sort1(x, off, s);
 		if ((s = d - c) > 1)
