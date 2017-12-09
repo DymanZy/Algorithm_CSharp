@@ -19,11 +19,47 @@ public class SimpleTimSort
 	private int stackTop = 0;
 
 
-	public static void Sort(int[] data) {
+	public SimpleTimSort(int[] data) {
+		a = data;
+		Type elementType = data.GetType().GetElementType();
+		aux = new int[a.Length];
+		Array.Copy(a, 0, aux, 0, a.Length);
+	}
+
+	public void Sort() {
+		int n = a.Length;
+
+		if (n < 2) return;
+
+		if (n < MIN_MERGE) {
+			insertSort(a, 0, 0, a.Length - 1);
+			return;
+		}
+
+		int baseIndex = 0;
+		while (n > 0) {
+			int len = maxAscendingLen(a, baseIndex);
+			if (len < MIN_MERGE) {
+				int abscent = n > MIN_MERGE ? MIN_MERGE - len : n - len;
+				insertSort(a, baseIndex, baseIndex + len - 1, abscent);
+				len = len + abscent;
+			}
+			pushRun(baseIndex, len);
+			n = n - len;
+			baseIndex = baseIndex + len;
+
+			int x;
+			while ((x = needMerge()) >= 0) {
+				mergeAt(x);
+			}
+		}
+		forceMerge();
+
+
 	}
 
     //  data[from, to]已有序，data[to]以后的n元素插入到有序的序列中
-	private void inserSort(int[] data, int from, int to, int n) {
+	private void insertSort(int[] data, int from, int to, int n) {
         int i = to + 1;
         while (n > 0) {
             int temp = data[i];
@@ -128,7 +164,50 @@ public class SimpleTimSort
     }
 
 
-	private void mergeAt(int x) { }
+	private void mergeAt(int x) {
+		int base1 = runsBase[x];
+		int len1 = runsLen[x];
+
+		int base2 = runsBase[x];
+		int len2 = runsLen[x];
+
+		runsLen[x] = len1 + len2;
+		if (stackTop == x + 3) {
+			runsBase[x + 1] = runsBase[x + 2];
+			runsLen[x + 1] = runsLen[x + 2];
+		}
+		stackTop--;
+
+		int from = gallopLeft(a, base1, len1, a[base2]);
+		if (from == base1 + len1) {
+			return;
+		}
+
+		int to = gallopRight(a, base2, len2, a[base1 + len1 - 1]);
+
+		Array.Copy(a, from, aux, from, to - from + 1);
+		int i = from;
+		int iend = base1 + len1 - 1;
+
+		int j = base2;
+		int jend = to;
+
+		int k = from;
+		int kend = to;
+
+		while (k <= kend) {
+			if (i > iend) {
+				a[k] = aux[j++];
+			} else if(j > jend) {
+				a[k] = aux[i++];
+			} else if(aux[i] <= aux[j]) {
+				a[k] = aux[i++];
+			} else {
+				a[k] = aux[j++];
+			}
+			k++;
+		}
+	}
 
 
 	private void forceMerge() { 
